@@ -18,10 +18,6 @@ export default class Picker extends Component {
     let dateComplete = an+"-"+mois+"-"+jour;
     let fetched = fetch("https://api.staging.bsport.io/api/v1/offer?company=6&max_date="+dateComplete+"&min_date="+dateComplete, {headers: {accept: "application/json", authorization: "f18688960a8942c83d238b04e88389ac126bf55c"}})
      .then(r => r.json())
-     .then(r => this.setState({resultatBrut : Object.entries((r.results)[0])}))
-    console.log(this.state.resultatBrut)
-    let fetchedDeux = fetch("https://api.staging.bsport.io/api/v1/offer?company=6&max_date="+dateComplete+"&min_date="+dateComplete, {headers: {accept: "application/json", authorization: "f18688960a8942c83d238b04e88389ac126bf55c"}})
-     .then(r => r.json())
     //  .then(r => console.log((r.results).length))
      .then(r => this.setState({longueurState : (r.results).length}))
      .then(r =>console.log(this.state.longueurState))
